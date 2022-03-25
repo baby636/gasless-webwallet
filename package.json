@@ -16,14 +16,19 @@
     "universal-login-boilerplate"
   ],
   "dependencies": {
-    "wsrun": "^2.2.1"
+    "wsrun": "^2.2.1",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "build": "yarn wsrun build --stages",
     "clean": "rm -rf ./node_modules && rm -rf ./packages/*/node_modules",
-    "postinstall": "yarn build"
-  }, "engines": {
+    "postinstall": "yarn build",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "engines": {
     "node": ">=10.9",
     "yarn": ">=1.9.4"
-  }
+  },
+  "snyk": true
 }
